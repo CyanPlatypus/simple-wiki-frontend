@@ -1,5 +1,5 @@
 <div class="container">
-	<button type="button" routerLink="/articles" class="btn btn-default">Back to articles
+	<button type="button" routerLink="/articles" class="btn btn-default mb">Back to articles
 	</button>
 
 	<form (ngSubmit)="onSubmit()" #articleForm="ngForm">
@@ -22,14 +22,14 @@
 			</div>
 		</div>
 
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<label for="author">Author</label>
 			<input type="text" name="author" class="form-control" id="author" [(ngModel)]="article.author" #author="ngModel" required >
 			<div [hidden]="author.valid || author.pristine"
 			class="alert alert-danger">
 			Author is required
 			</div>
-		</div>
+		</div> -->
 
 		<button type="submit" class="btn btn-success" [disabled]="!articleForm.form.valid">Submit</button>
 

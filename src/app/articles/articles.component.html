@@ -1,7 +1,7 @@
 
 
 <div class="container">
-  <button type="button" routerLink="/articles/add" class="btn btn-default">Add new</button>
+  <button type="button" routerLink="/articles/add" class="btn btn-default mb">Add new</button>
   <ul class="list-group">
     <li *ngFor="let article of articles" class="list-group-item clearfix">    
       <a  routerLink="/articles/{{article.id}}">{{article.title}}</a>
@@ -14,11 +14,11 @@
             <span class="glyphicon glyphicon-pencil"></span>
           </button>
         </div>
-        <div class="btn-group" role="group">
+        <!-- <div class="btn-group" role="group">
           <button type="button" class="btn btn-xs btn-secondary">
             <span class="glyphicon glyphicon-remove"></span>
           </button>
-        </div>
+        </div> -->
       </div>
 
       <!-- <button type="button" class="btn btn-xs btn-default" onclick="alert('Action1 -> Play');">
@@ -33,5 +33,5 @@
       
     </li>
   </ul>
-  <button (click)="addRandomArticle()">Add random</button>
+  <!-- <button (click)="addRandomArticle()">Add random</button> -->
 </div>

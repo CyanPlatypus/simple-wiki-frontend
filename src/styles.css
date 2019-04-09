@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+/* @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'); */
+
+.mr
+{
+    margin-right: 5px;
+}
+
+.mb
+{
+    margin-bottom: 5px !important;
+}
