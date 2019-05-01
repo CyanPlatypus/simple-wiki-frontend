@@ -48,6 +48,7 @@ export class AuthService {
     return this.sendSignUp(user).pipe(
       tap(a=> {
         this.user = user;
+        user.isAdmin = false;
         this.basic = this.constructBasic(user.login, user.passw);
       }),
       catchError(err=> {
@@ -70,6 +71,9 @@ export class AuthService {
     this.basic = this.constructBasic(user.login, user.passw)
 
     return this.sendSignIn().pipe(
+      tap(a=> {
+        user.isAdmin = a;
+      }),
       catchError(err=> {
         this.logOut();
         return throwError(err);
@@ -98,7 +102,14 @@ export class AuthService {
   }
 
   private constructBasic(user:string, passw:string): string {
-    return "Basic " + btoa(`${user}:${passw}`);
+    return "Basic " + btoa(unescape(encodeURIComponent(`${user}:${passw}`)));
+  }
+
+  isAdmin(){
+    if(this.user){
+      return this.user.isAdmin;
+    }
+    return false;
   }
 }
 //"Basic " + btoa("username:password")

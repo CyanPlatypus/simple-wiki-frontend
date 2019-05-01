@@ -19,17 +19,29 @@ export class SigninComponent implements OnInit {
 
   onSignUp(){
     this.authService.signUp(this.user).subscribe(
-      ()=>this.goToArticles());
+      ()=>this.goToArticles(),
+      ()=>this.showSignupError()
+      );
   }
 
   onSignIn(){
     this.authService.signIn(this.user).subscribe(
-      ()=>this.goToArticles());
+      ()=>this.goToArticles(),
+      ()=>this.showSignInError()
+      );
   }
 
   goToArticles(){
     //this.router.navigate([`/articles`]);
     this.router.navigateByUrl('/articles');
+  }
+
+  showSignInError(){
+    alert("Wrong login and/or password.")
+  }
+
+  showSignupError(){
+    alert("User with this login already exists.")
   }
 
 }

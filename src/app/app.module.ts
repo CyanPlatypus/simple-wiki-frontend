@@ -10,6 +10,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ArticleComponent } from './article/article.component';
 import { SigninComponent } from './signin/signin.component';
 
+import {FilterPipe} from './filter.pipe';
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
 
@@ -19,7 +21,8 @@ import { TokenInterceptor } from './token.interceptor';
     ArticlesComponent,
     ArticleFormComponent,
     ArticleComponent,
-    SigninComponent
+    SigninComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

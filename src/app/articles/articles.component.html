@@ -2,11 +2,12 @@
 
 <div class="container">
   <button type="button" routerLink="/articles/add" class="btn btn-default mb">Add new</button>
+  <input type="text" placeholder="Find..." class="form-control mb" [(ngModel)]="filter" >
   <ul class="list-group">
-    <li *ngFor="let article of articles" class="list-group-item clearfix">    
+    <li *ngFor="let article of articles|filter:filter:fieldname" class="list-group-item clearfix">    
       <a  routerLink="/articles/{{article.id}}">{{article.title}}</a>
       [{{article.author}}]
-
+      <span class="text-secondary">last edit: {{article?.date | date:'dd.MM.yyyy'}}</span>
       <div class="btn-toolbar pull-right" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-xs btn-secondary" 
@@ -14,11 +15,11 @@
             <span class="glyphicon glyphicon-pencil"></span>
           </button>
         </div>
-        <!-- <div class="btn-group" role="group">
-          <button type="button" class="btn btn-xs btn-secondary">
+        <div *ngIf="isAdmin()" class="btn-group" role="group">
+          <button type="button" class="btn btn-xs btn-secondary" (click)="deleteArticle(article)" >
             <span class="glyphicon glyphicon-remove"></span>
           </button>
-        </div> -->
+        </div>
       </div>
 
       <!-- <button type="button" class="btn btn-xs btn-default" onclick="alert('Action1 -> Play');">

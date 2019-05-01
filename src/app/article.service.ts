@@ -43,4 +43,8 @@ export class ArticleService {
   saveArticle(art: Article) : Observable<any>{
     return this.httpClient.put(`${this.articlesUrl}/${art.id}`, art);
   }
+
+  deleteArticle(id: number) : Observable<any>{
+    return this.httpClient.delete(`${this.articlesUrl}/${id}`);
+  }
 }

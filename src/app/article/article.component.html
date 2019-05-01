@@ -1,9 +1,19 @@
 <div class="container">
-	<button type="button" routerLink="/articles" class="btn btn-default">Back to articles
-	</button>
+	<!-- <div class="btn-group" role="group"> -->
+		<button type="button" routerLink="/articles" class="btn btn-default mr">Back to articles
+		</button>
+		<button type="button" class="btn btn-secondary mr" routerLink="/articles/{{article.id}}/edit">
+			<span class="glyphicon glyphicon-pencil"></span>
+		</button>
+		<button *ngIf="isAdmin()" type="button" class="btn btn-secondary mr" (click)="deleteArticle(article)" >
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	<!-- </div> -->
 
-	<p class="lead">{{article.title}}</p>
-  	<p>{{article.content}}</p>
-  	<p>Author: {{article.author}}</p>
+	<div class="pull-right" >{{article?.date | date:'dd.MM.yyyy HH:mm'}}</div>
+	<div class="lead">{{article?.title}}</div>
+	
+	<p >{{article?.content}}</p>
+  	<p>Author: {{article?.author}}</p>
   	
 </div>
